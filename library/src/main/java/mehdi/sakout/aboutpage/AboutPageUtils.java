@@ -7,28 +7,29 @@ import android.util.TypedValue;
 
 class AboutPageUtils {
 
-    static Boolean isAppInstalled(Context context, String appName) {
+    static Boolean isAppInstalled( Context context, String appName ) {
         PackageManager pm = context.getPackageManager();
         boolean installed;
         try {
-            pm.getPackageInfo(appName, PackageManager.GET_ACTIVITIES);
+            pm.getPackageInfo( appName, PackageManager.GET_ACTIVITIES );
             installed = true;
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch ( Exception e ) {
             installed = false;
         }
         return installed;
     }
 
-    static int getThemeAccentColor(Context context) {
+    static int getThemeAccentColor( Context context ) {
         int colorAttr;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ) {
             colorAttr = android.R.attr.colorAccent;
         } else {
             //Get colorAccent defined for AppCompat
-            colorAttr = context.getResources().getIdentifier("colorAccent", "attr", context.getPackageName());
+            colorAttr = context.getResources()
+                    .getIdentifier( "colorAccent", "attr", context.getPackageName() );
         }
         TypedValue outValue = new TypedValue();
-        context.getTheme().resolveAttribute(colorAttr, outValue, true);
+        context.getTheme().resolveAttribute( colorAttr, outValue, true );
         return outValue.data;
     }
 }

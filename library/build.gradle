@@ -5,9 +5,9 @@ android {
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 16
-        versionName "1.2.4"
+        versionName "1.2.5"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -29,7 +29,7 @@ tasks.withType(Javadoc) {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
 }
 
 archivesBaseName = 'android-about-page'
